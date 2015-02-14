@@ -1,3 +1,3 @@
-# Como eu estou ?
+# Oh my God !
 Description:
-	Uma aplicação web que vai gerenciar meus "Contas à receber" e meus "Contas à pagar"
+	A web application for manage your debts
