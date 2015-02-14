@@ -1,0 +1,5 @@
+extends ../layout/default
+block content
+	form(method="post", action="/delete?_method=delete")
+		input(type="text", placeholder="ID for delete ..." name="id")
+		button(type="submit") Delete

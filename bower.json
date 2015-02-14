@@ -1,0 +1,22 @@
+{
+  "name": "como-eu-estou",
+  "version": "0.0.1",
+  "homepage": "https://github.com/guilhermeepaixaoo/como-eu-estou",
+  "authors": [
+    "Guilherme Fernandes Souza da Paixão <guilhermee.paixaoo@gmail.com>"
+  ],
+  "description": "Uma aplicação pra analisar os meus movimentos financeiros, basicamente",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/dependences/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "angularjs": "~1.3.11"
+  }
+}

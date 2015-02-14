@@ -1,0 +1,7 @@
+extends ../layout/default
+block content
+	form(method="post", action="/update/#{datas._id}?_method=put")
+		input(type="text", placeholder="Your name", name="name", value="#{datas.name}")
+		input(type="email", placeholder="Your email address", name="email", value="#{datas.email}")
+		input(type="password", placeholder="Your password", name="password", value="#{datas.password}")
+		button(type="submit") Update

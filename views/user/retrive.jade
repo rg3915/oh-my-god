@@ -1,0 +1,18 @@
+extends ../layout/default
+block content
+	table
+		tr.title
+			td Id
+			td Name
+			td Email address
+		each data in datas
+			tr
+				td #{data._id}
+				td #{data.name}
+				td #{data.email}
+				td 
+					a(href="/update/#{data._id}") Update
+				td
+					form(method="post", action="/delete/#{data._id}?_method=delete")
+						button(type="submit") Delete
+	a(href="/create") Create

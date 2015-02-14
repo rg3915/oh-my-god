@@ -1,0 +1,3 @@
+node_modules/
+public/dependences/*
+npm-debug.log

@@ -1,0 +1,23 @@
+<<<<<<< HEAD
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+=======
+*{
+	list-style: none;
+	text-decoration: none;
+}
+
+table, td{
+	border: solid 1px;
+	border-spacing: 2px;
+}
+
+tr.title{
+	background-color: #ffc;
+>>>>>>> 4bf226b1e8bfac7dab0a2ba5fd25c143acd906fc
+}
