@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="en" ng-app="app")
 	head
 		link(rel="stylesheet", type="text/css", href="/css/style.css")
 		meta(charset="UTF-8")
@@ -7,6 +7,14 @@ html(lang="en")
 			title #{title}
 		else
 			title= 'Como eu estou ?'
-	body
 		
-		block content	
+	block content
+
+	script(type="text/javascript", src="/angularjs/angular.min.js")
+	script(type="text/javascript", src="/angular-route/angular-route.min.js")
+	script(type="text/javascript", src="/js/app.js")
+	script(type="text/javascript", src="/js/config/route.js")
+	script(type="text/javascript", src="/js/models/api.js")
+	script(type="text/javascript", src="/js/controllers/retrive.js")
+	script(type="text/javascript", src="/js/controllers/retriveById.js")
+	script(type="text/javascript", src="/js/factories/request.js")

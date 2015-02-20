@@ -3,7 +3,9 @@ angular.module('api').factory('request', ['$http', function($http){
 	var crud = {
 		
 		create: function(_url, _data){
-			$http({
+			console.log('front > request.js');
+			console.log(_data);
+			return $http({
 				method: 'POST',
 				url: _url,
 				data: _data
@@ -11,14 +13,14 @@ angular.module('api').factory('request', ['$http', function($http){
 		},
 
 		retrive: function(_url, _data){
-			$http({
+			return $http({
 				method: 'GET',
 				url: _url
 			});
 		},
 
 		update: function(_url, _data){
-			$http({
+			return $http({
 				method: 'PUT',
 				url: _url,
 				data: _data
@@ -27,12 +29,10 @@ angular.module('api').factory('request', ['$http', function($http){
 
 		delete: function(_url, _data){
 
-			var query = {_id = _data._id};
-
-			$http({
+			return $http({
 				method: 'DELETE',
 				url: _url,
-				data: query
+				data: _data
 			});
 		}
 	};

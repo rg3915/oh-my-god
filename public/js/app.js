@@ -1,8 +1,8 @@
 if(!window.Global)
 {
-	Global = {};
+	window.Global = {};
 }
 
-Global.dependences = ['api'];
+Global.dependences = ['api', 'ngRoute'];
 
 angular.module('app', Global.dependences); 

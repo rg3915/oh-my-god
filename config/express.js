@@ -9,7 +9,7 @@ var express = require('express')
 	}
 	
 ,	api = {
-		user: require('../api/routes/user')
+		user: require('../routes/api/user')
 	}
 
 //=========== Variáveis de ambiente ===========
@@ -23,12 +23,16 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 
 app.use(express.static('./public'));
+app.use(express.static('./public/dependences'));
 
-// Rotas
+
+//=========== Route's =============
+
+	// Rotas da Aplicação
 app.use('/', routes.home);
 app.use('/user', routes.user);
 
-// Rotas API
-app.use('/user', api.user);
+	// Rotas da API
+app.use('/api/user', api.user); // Rotas da API para user's
 
 module.exports = app;

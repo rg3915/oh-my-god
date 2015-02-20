@@ -1,18 +1,16 @@
 extends ../layout/default
 block content
-	table
-		tr.title
-			td Id
-			td Name
-			td Email address
-		each data in datas
-			tr
-				td #{data._id}
-				td #{data.name}
-				td #{data.email}
-				td 
-					a(href="/update/#{data._id}") Update
+	body(ng-controller="retrive")
+		table
+			tr.title
+				td Id
+				td Name
+				td Email address
+			tr(ng-repeat="user in ctrl.users")
+				td {{user._id}}
+				td {{user.f_name}}
+				td {{user.email}}
 				td
-					form(method="post", action="/delete/#{data._id}?_method=delete")
-						button(type="submit") Delete
-	a(href="/create") Create
+					a(ng-href="/user/{{user._id}}") Detalhes
+
+		a(href="/user/create") Create

@@ -8,22 +8,19 @@ var mongoose = require('mongoose')
 		"email": {type: String, required: true},
 		"gender": {type: String, required: true},
 		"password":{type: String, required: true},
-		"currency": []
 	}
 
-,	currency = {
-		"name": {type: String, required: true},
-		"owner": {type: String, required: true},
-		"get_amount": {type: String, required: true},
-		"current_amount": {type: Number, required: true},
-		"get_amount": {type: Number, min: 0.01, required: false},
-		"set_amount": {type: Number, min: 0.01, required: false}
-	}
+, currency = {
+				"name": {type: String, required: true},
+				"current_amount": {type: Number, required: false, default: 0},
+				"date_get_salary": {type: Date, default: Date.now}
+			}
 
-,	userSchema = new Schema(user)
-, 	currencySchema = new Schema(currency);
+user.currency = currency;
 
-userSchema.currency = currencySchema;
-console.log(userSchema);
+var userSchema = new Schema(user);
+
+//console.log(userSchema);
+
 
 module.exports = mongoose.model('User', userSchema, 'user');
