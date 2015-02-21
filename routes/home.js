@@ -4,4 +4,8 @@ var express = require('express')
 
 router.get('/', controller.index);
 
+router.get('/view', function(req, res){
+	res.render('view');
+});
+
 module.exports = router;

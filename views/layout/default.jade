@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+doctype html
 html(lang="en" ng-app="app")
 	head
 		link(rel="stylesheet", type="text/css", href="/css/style.css")
+		base(href='/')
 		meta(charset="UTF-8")
 		if title
 			title #{title}
 		else
 			title= 'Como eu estou ?'
 		
-	block content
+	block view
 
 	script(type="text/javascript", src="/angularjs/angular.min.js")
 	script(type="text/javascript", src="/angular-route/angular-route.min.js")
