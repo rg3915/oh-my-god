@@ -25,10 +25,6 @@
 				selectedTask: {},
 				onSelectedTask: false,
 
-				clear: function(params){
-					params = '';
-				},
-
 				selectTask: function(task){
 					scp.ctrl.selectedTask = task;
 					scp.ctrl.message.status = true;

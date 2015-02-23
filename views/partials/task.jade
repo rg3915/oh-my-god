@@ -1,12 +1,14 @@
-div.ui.items
-  div.item
-    div.content
-      div.header {{ctrl.task.status}}
-      div.meta
-        span.date {{ctrl.task.date}}
-      div.description
-        p {{ctrl.task.text}}
-    div.extra
+div.ui.segment
+  div.header Status:
+  p {{ctrl.task.status}}
+
+  div.date Date:
+  p {{ctrl.task.date}}
+
+  div.description Task:
+  p {{ctrl.task.text}}
+  
+ div.extra
       div.ui.3.fluid.buttons
         a(ng-href="/#/list").ui.vertical.animated.button.orange
           div.hidden.content Back
@@ -18,7 +20,7 @@ div.ui.items
           div.visible.content
             i.edit.icon 
 
-        button.ui.vertical.animated.button.red
+        button(ng-click="ctrl.delete()").ui.vertical.animated.button.red
           div.hidden.content Delete
           div.visible.content
             i.trash.icon

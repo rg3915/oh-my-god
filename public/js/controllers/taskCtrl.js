@@ -1,6 +1,6 @@
 (function(){
 	angular.module('app')
-		.controller('TaskCtrl', ['$scope', 'request', '$routeParams', function ($scope, request, $routeParams) {
+		.controller('TaskCtrl', ['$scope', 'request', '$routeParams', '$location', function ($scope, request, $routeParams, $location) {
 			var scp = $scope
 			,	req = request
 			, 	id = $routeParams.id
@@ -17,7 +17,19 @@
 			}
 
 			scp.ctrl = {
-				task: {}
+				task: {},
+
+				delete: function(){
+
+					var url = '/api/task/' + scp.ctrl.task._id + '/delete';
+
+					req.delete(url)
+						.success(function(d){
+							$location.path('/#/list')
+						}).error(function(e){
+							
+						});
+				}
 			};
 
 			updateTask();
