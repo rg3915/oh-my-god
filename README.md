@@ -4,13 +4,13 @@
 
 OH My God is an web application for write yours tasks
 
-### Configuration
+###Configuration
 
-  Install:
-    `npm -g bower && bower install`
-    `npm install`
+Install:
+  `npm -g bower && bower install`
+  `npm install`
 
-### Using
+###Using
 
-  Execute:
-    `node app`
+Execute:
+  `node app`
