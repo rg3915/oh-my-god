@@ -4,12 +4,12 @@ var express = require('express')
 , 	methodOverride = require('method-override')
 
 , 	routes = {
-		home: 	require('../routes/home'),
-		user: 	require('../routes/user')
+		main: 	require('../routes/main'),
+		partials: 	require('../routes/partials')
 	}
 	
 ,	api = {
-		user: require('../routes/api/user')
+		task: require('../routes/api/task')
 	}
 
 //=========== Variáveis de ambiente ===========
@@ -29,10 +29,10 @@ app.use(express.static('./public/dependences'));
 //=========== Route's =============
 
 	// Rotas da Aplicação
-app.use('/', routes.home);
-app.use('/user', routes.user);
+app.use('/', routes.main);
+app.use('/partials', routes.partials);
 
 	// Rotas da API
-app.use('/api/user', api.user); // Rotas da API para user's
+app.use('/api/task', api.task); // Rotas da API para user's
 
 module.exports = app;

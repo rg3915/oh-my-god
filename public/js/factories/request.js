@@ -5,8 +5,6 @@
 			var crud = {
 				
 				create: function(_url, _data){
-					console.log('front > request.js');
-					console.log(_data);
 					return $http({
 						method: 'POST',
 						url: _url,

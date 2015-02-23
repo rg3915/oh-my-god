@@ -1,0 +1,44 @@
+div.ui.icon.input.fluid.excuse
+	input(type="text", placeholder="Write your task here and press Enter ...", ng-model="data.text", ng-keyup="$event.keyCode == 13 && ctrl.create(data)")
+	i(ng-show="data.text.length > 0", ng-click="data.text = ''").close.icon
+
+div(ng-if="ctrl.tasks.length > 0").ui.icon.input.fluid.excuse
+	input(type="text", placeholder="Filter your task here ...", ng-model="ctrl.filterTask")
+	i.search.icon
+
+div(ng-class="{negative: !ctrl.message.status, positive: ctrl.message.status}", ng-if="ctrl.showMessage").ui.message
+	i(ng-click="ctrl.showMessage = false").close.icon
+	span {{ctrl.message.text}}
+
+div(ng-if="ctrl.onSelectedTask").ui.3.fluid.buttons
+	a(ng-href="#/{{ctrl.selectedTask._id}}/task").ui.vertical.animated.button.blue
+		div.hidden.content More information
+		div.visible.content
+			i.info.icon
+
+	button.ui.vertical.animated.button.yellow
+		div.hidden.content Edit
+		div.visible.content
+			i.edit.icon 
+
+	button(ng-click="ctrl.delete()").ui.vertical.animated.button.red
+		div.hidden.content Delete
+		div.visible.content
+			i.trash.icon 
+
+table.ui.celled.table
+
+	thead
+		th Status
+		th Task
+		th Date
+
+	tbody
+		tr(ng-repeat="task in ctrl.tasks | filter: ctrl.filterTask", ng-click="ctrl.selectTask(task)")
+			td {{task.status}}
+			td {{task.text | characters: 17: true}}
+			td {{task.date}}
+
+div(ng-if="ctrl.tasks.length <= 0").ui.info.message
+	i.thumbs.outline.up.icon
+	span Your list of task is empty

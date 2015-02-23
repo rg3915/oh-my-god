@@ -1,0 +1,24 @@
+div.ui.items
+  div.item
+    div.content
+      div.header {{ctrl.task.status}}
+      div.meta
+        span.date {{ctrl.task.date}}
+      div.description
+        p {{ctrl.task.text}}
+    div.extra
+      div.ui.3.fluid.buttons
+        a(ng-href="/#/list").ui.vertical.animated.button.orange
+          div.hidden.content Back
+          div.visible.content
+            i.arrow.left.icon
+
+        button.ui.vertical.animated.button.yellow
+          div.hidden.content Edit
+          div.visible.content
+            i.edit.icon 
+
+        button.ui.vertical.animated.button.red
+          div.hidden.content Delete
+          div.visible.content
+            i.trash.icon

@@ -1,23 +1,43 @@
-<<<<<<< HEAD
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+tr:hover{
+	cursor: pointer;
 }
 
-a {
-  color: #00B7FF;
-=======
-*{
-	list-style: none;
-	text-decoration: none;
+.debug{
+	border: dashed thin #000;
 }
 
-table, td{
-	border: solid 1px;
-	border-spacing: 2px;
+.container{
+	width: 32em;
+	height: auto;
+	margin: 0 auto;
 }
 
-tr.title{
-	background-color: #ffc;
->>>>>>> 4bf226b1e8bfac7dab0a2ba5fd25c143acd906fc
+.container .debug{
+	background: #ff0000;	
 }
+
+.close .icon:hover{
+	cursor: pointer;
+}
+
+.excuse{margin: 10px 18px;}
+
+.row-per-hundred{width: 100%;}
+
+.row-per-ninety{width: 90%;}
+
+.row-per-eighty{width: 80%;}
+
+.row-per-seventy{width: 70%;}
+
+.row-per-sixty{width: 60%;}
+
+.row-per-fifty{width: 50%;}
+
+.row-per-forty{width: 40%;}
+
+.row-per-thirty{width: 30%;}
+
+.row-per-twenty{width: 20%;}
+
+.row-per-ten{width: 10%;}

@@ -1,6 +1,6 @@
 var router = require('express').Router()
 
-, 	api = require('../../controllers/api/user')
+, 	api = require('../../controllers/api/task')
 
 	// Função que faz o callback de todas chamadas da API
 , 	cbAPI = function(err, data, res){
