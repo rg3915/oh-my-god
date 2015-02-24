@@ -1,0 +1,32 @@
+div.ui.segment
+  div.ui.form
+    div.field 
+      label Status:
+      select(ng-model="data.status")
+        option(value="true") Checked
+        option(value="false") Pending
+
+    div.field 
+      label Date:
+      input(type="date", ng-model="data.date") 
+
+    div.required.field 
+      label Task:
+      input(type="text", ng-model="data.text")
+
+ div.extra
+      div.ui.3.fluid.buttons
+        a(ng-href="/#/list").ui.vertical.animated.button.orange
+          div.hidden.content Back
+          div.visible.content
+            i.arrow.left.icon
+
+        button(ng-click="ctrl.update(data)").ui.vertical.animated.button.green
+          div.hidden.content Update
+          div.visible.content
+            i.checkmark.icon 
+
+        button(ng-click="data = {}").ui.vertical.animated.button.red
+          div.hidden.content Clear
+          div.visible.content
+            i.close.icon

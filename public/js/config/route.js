@@ -10,6 +10,10 @@
 					templateUrl: 'partials/task',
 					controller: 'TaskCtrl'
 				})
+				.when('/:id/edit', {
+					templateUrl: 'partials/edit',
+					controller: 'EditCtrl'
+				})
 				.otherwise({ redirectTo: '/list' })
 		}]);
 }());

@@ -1,5 +1,5 @@
 module.exports = {
-	"status": {type: String, default: 'Pending'},
+	"status": {type: Boolean, default: false},
 	"text": {type: String, required: true},
-	"date": {type: Date, default: Date.now}
+	"date": {type: String, default: Date.now}
 }

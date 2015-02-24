@@ -1,6 +1,6 @@
 (function(){
 	angular.module('app')
-		.controller('TaskCtrl', ['$scope', 'request', '$routeParams', '$location', function ($scope, request, $routeParams, $location) {
+		.controller('EditCtrl', ['$scope', 'request', '$routeParams', '$location', function ($scope, request, $routeParams, $location) {
 			var scp = $scope
 			,	req = request
 			, 	id = $routeParams.id
@@ -11,6 +11,7 @@
 				req.retrive(url)
 					.success(function(d){
 						scp.ctrl.task = d;
+						console.log(scp.ctrl.task);
 					}).error(function(e){
 
 					});
@@ -29,9 +30,28 @@
 						}).error(function(e){
 							
 						});
+				},
+
+				update: function(task){
+					var url = '/api/task/' + id + '/update';
+
+					var data = {
+						status: task.status,
+						date: task.date,
+						text: task.text
+					}
+
+					req.update(url, data)
+						.success(function(d){
+							console.log(d);
+							$location.path('/#/list')
+						}).error(function(e){
+							console.log(e);
+						})
 				}
 			};
 
 			updateTask();
-		}])
+
+		}]);
 }());

@@ -39,6 +39,11 @@ module.exports = {
 
 		var query = {_id: req.params.id};
 
+		var mod = req.body;
+
+		console.log('Condition ' + query);
+		console.log('Data ' + mod);
+
 		Task.update(query, mod, function(e, d){
 
 			cb(e, d, res);

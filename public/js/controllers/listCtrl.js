@@ -32,6 +32,23 @@
 					scp.ctrl.onSelectedTask = true;
 				},
 
+				updateStatus: function(){
+
+					var url = '/api/task/' + scp.ctrl.selectedTask._id + '/update';
+
+					var data = {
+						status: true
+					}
+
+					req.update(url, data)
+						.success(function(d){
+							console.log(d);
+							updateList();
+						}).error(function(e){
+							console.log(e);
+						})
+				},
+
 				create: function(task){
 
 					var url = '/api/task/create';

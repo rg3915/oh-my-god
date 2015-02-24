@@ -10,13 +10,18 @@ div(ng-class="{negative: !ctrl.message.status, positive: ctrl.message.status}", 
 	i(ng-click="ctrl.showMessage = false").close.icon
 	span {{ctrl.message.text}}
 
-div(ng-if="ctrl.onSelectedTask").ui.3.fluid.buttons
+div(ng-if="ctrl.onSelectedTask", ng-click="ctrl.updateStatus()").ui.4.fluid.buttons
+	button.ui.vertical.animated.button.green
+		div.hidden.content Check up
+		div.visible.content
+			i.checkmark.icon 
+
 	a(ng-href="#/{{ctrl.selectedTask._id}}/task").ui.vertical.animated.button.blue
-		div.hidden.content More information
+		div.hidden.content Details
 		div.visible.content
 			i.info.icon
 
-	button.ui.vertical.animated.button.yellow
+	a(ng-href="#/{{ctrl.selectedTask._id}}/edit").ui.vertical.animated.button.yellow
 		div.hidden.content Edit
 		div.visible.content
 			i.edit.icon 
@@ -34,10 +39,11 @@ table.ui.celled.table
 		th Date
 
 	tbody
-		tr(ng-repeat="task in ctrl.tasks | filter: ctrl.filterTask", ng-click="ctrl.selectTask(task)")
-			td {{task.status}}
+		tr(ng-repeat="task in ctrl.tasks | filter: ctrl.filterTask", ng-click="ctrl.selectTask(task)", ng-class="{checked: task.status}")
+			td
+				i(ng-class="{checkmark: task.status, green: task.status, attention: !task.status, blue: !task.status}").ui.icon.large
 			td {{task.text | characters: 17: true}}
-			td {{task.date}}
+			td {{task.date | characters: 20: false}}
 
 div(ng-if="ctrl.tasks.length <= 0").ui.info.message
 	i.thumbs.outline.up.icon

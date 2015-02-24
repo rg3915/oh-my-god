@@ -1,5 +1,11 @@
+.checked{
+	text-decoration: line-through;
+	color: #CCC;
+}
+
 tr:hover{
 	cursor: pointer;
+	background: rgba(205, 205, 205, .2);
 }
 
 .debug{
