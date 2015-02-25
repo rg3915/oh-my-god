@@ -1,15 +1,21 @@
 (function(){
 	angular.module('app')
-		.controller('ListCtrl', ['$scope', 'request', function ($scope, request) {
+		.controller('ListCtrl', ['$scope', 'request', '$location', '$routeParams', function ($scope, request, $location, $routeParams) {
 
 			var req = request
 			, 	scp = $scope
+			, 	page = $routeParams.p
 			, 	updateList = function(){
-					req.retrive('/api/task/retrive')
+					req.retrive('/api/task/' + page + '/retrive')
 						.success(function(d){
-							scp.ctrl.tasks = d;
-							scp.ctrl.message.status = true;
-							scp.ctrl.message.text = 'Amount from task found: ' + scp.ctrl.tasks.length;
+							console.log(d);
+							if(d.length <= 0){
+								$location.path('/#/0/list');
+							}else{
+								scp.ctrl.tasks = d;
+								scp.ctrl.message.status = true;
+								scp.ctrl.message.text = 'Amount from task found: ' + scp.ctrl.tasks.length;
+							}
 
 						}).error(function(e){
 							scp.ctrl.message.status = false;

@@ -2,7 +2,7 @@
 	angular.module('app')
 		.config(['$routeProvider', function($routeProvider){
 			$routeProvider
-				.when('/list', {
+				.when('/:p/list', {
 					templateUrl: 'partials/list',
 					controller: 'ListCtrl'
 				})
@@ -14,6 +14,6 @@
 					templateUrl: 'partials/edit',
 					controller: 'EditCtrl'
 				})
-				.otherwise({ redirectTo: '/list' })
+				.otherwise({ redirectTo: '/0/list' })
 		}]);
 }());
