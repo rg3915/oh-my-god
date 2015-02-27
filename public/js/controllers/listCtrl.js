@@ -6,16 +6,10 @@
 			, 	scp = $scope
 			, 	page = $routeParams.p
 			, 	updateList = function(){
-					req.retrive('/api/task/' + page + '/retrive')
+					req.retrive('/api/task/retrive')
 						.success(function(d){
-							console.log(d);
-							if(d.length <= 0){
-								$location.path('/#/0/list');
-							}else{
-								scp.ctrl.tasks = d;
-								scp.ctrl.message.status = true;
-								scp.ctrl.message.text = 'Amount from task found: ' + scp.ctrl.tasks.length;
-							}
+							
+							scp.ctrl.tasks = d;
 
 						}).error(function(e){
 							scp.ctrl.message.status = false;
@@ -25,7 +19,7 @@
 
 			scp.ctrl = {
 				message: {},
-				showMessage: true,
+				showMessage: false,
 				filterTask: '',
 				tasks: [],
 				selectedTask: {},
@@ -48,10 +42,15 @@
 
 					req.update(url, data)
 						.success(function(d){
-							console.log(d);
+
 							updateList();
+
 						}).error(function(e){
+
+							scp.ctrl.message.status = false;
+							scp.ctrl.message.text = 'Error: ' + e;
 							console.log(e);
+							
 						})
 				},
 
@@ -64,6 +63,7 @@
 							scp.ctrl.message.status = true;
 							scp.ctrl.message.text = 'Your task was created with success';
 							task.text = '';
+
 							updateList();
 
 						}).error(function(e){

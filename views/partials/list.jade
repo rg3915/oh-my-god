@@ -39,7 +39,7 @@ table.ui.celled.table
 		th Date
 
 	tbody
-		tr(ng-repeat="task in ctrl.tasks | filter: ctrl.filterTask", ng-click="ctrl.selectTask(task)", ng-class="{checked: task.status}")
+		tr(ng-repeat="task in ctrl.tasks | filter: ctrl.filterTask", ng-click="ctrl.selectTask(task)", ng-class="{checked: task.status, active: ctrl.selectedTask._id == task._id}")
 			td
 				i(ng-class="{checkmark: task.status, green: task.status, attention: !task.status, blue: !task.status}").ui.icon.large
 			td {{task.text | characters: 17: true}}
@@ -52,13 +52,6 @@ div(ng-if="ctrl.tasks.length <= 0").ui.info.message
 div.ui.pagination.menu
 	a.icon.item
 		i.left.arrow.icon
-	a.active.item 1
-	a.disabled.item ...
-	a.active.item 10
-	a.active.item 20
-	a.active.item 30
-	a.active.item 1
-	a.disabled.item ...
-	a.active.item 10
+	a.item {{ctrl.tasks.length /8}}
 	a.icon.item
 		i.right.arrow.icon
