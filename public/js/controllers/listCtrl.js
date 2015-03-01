@@ -8,14 +8,9 @@
 			, 	updateList = function(){
 					req.retrive('/api/task/' + page + '/retrive')
 						.success(function(d){
-							console.log(d);
-							if(d.length <= 0){
-								$location.path('/#/0/list');
-							}else{
-								scp.ctrl.tasks = d;
-								scp.ctrl.message.status = true;
-								scp.ctrl.message.text = 'Amount from task found: ' + scp.ctrl.tasks.length;
-							}
+							
+							// Recuperando os dados da API
+							scp.ctrl.tasks = d;
 
 						}).error(function(e){
 							scp.ctrl.message.status = false;
@@ -25,16 +20,18 @@
 
 			scp.ctrl = {
 				message: {},
-				showMessage: true,
+				showMessage: false,
 				filterTask: '',
 				tasks: [],
 				selectedTask: {},
 				onSelectedTask: false,
+				limitTask: 10,
+				currentPage: page,
+				nextPage: parseInt(page)  +1,
+				prevPage: parseInt(page) -1,
 
 				selectTask: function(task){
 					scp.ctrl.selectedTask = task;
-					scp.ctrl.message.status = true;
-					scp.ctrl.message.text = 'Task ' + scp.ctrl.selectedTask._id + ' selected';
 					scp.ctrl.onSelectedTask = true;
 				},
 
@@ -48,10 +45,9 @@
 
 					req.update(url, data)
 						.success(function(d){
-							console.log(d);
 							updateList();
 						}).error(function(e){
-							console.log(e);
+							console.log('Error: ' + e);
 						})
 				},
 

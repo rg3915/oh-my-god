@@ -1,1 +1,3 @@
-angular.module('api', []);
+(function(){
+	angular.module('api', []);
+}());

@@ -4,10 +4,7 @@ html(lang="en" ng-app="app")
 		link(rel="stylesheet", type="text/css", href="/css/style.css")
 		link(rel="stylesheet", type="text/css", href="/semantic-ui/dist/semantic.min.css")
 		meta(charset="UTF-8")
-		if title
-			title #{title}
-		else
-			title= 'OH My God!'
+		title Oh my God!
 
 	body
 		block view
@@ -15,12 +12,17 @@ html(lang="en" ng-app="app")
 	script(type="text/javascript", src="/jquery/dist/jquery.min.js")
 	script(type="text/javascript", src="/angular/angular.min.js")
 	script(type="text/javascript", src="/angular-route/angular-route.min.js")
+
 	script(type="text/javascript", src="/js/app.js")
 	script(type="text/javascript", src="/js/config/route.js")
 	script(type="text/javascript", src="/js/models/api.js")
 	script(type="text/javascript", src="/js/models/truncate.js")
+	script(type="text/javascript", src="/js/filters/characters.js")
+	script(type="text/javascript", src="/js/filters/splitcharacters.js")
+	script(type="text/javascript", src="/js/filters/words.js")
 	script(type="text/javascript", src="/js/factories/request.js")
 	script(type="text/javascript", src="/js/controllers/listCtrl.js")
 	script(type="text/javascript", src="/js/controllers/taskCtrl.js")
 	script(type="text/javascript", src="/js/controllers/editCtrl.js")
+		
 	script(type="text/javascript", src="/semantic-ui/dist/semantic.min.js")

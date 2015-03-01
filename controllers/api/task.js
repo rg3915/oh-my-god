@@ -17,13 +17,8 @@ module.exports = {
 
 	retrive: function(req, res, cb){
 
-		var page = req.params.id;
-
-		var limit = 8;
-
-		console.log(page);
-
-		Task.find({}).limit(limit).skip(((page -1) *limit)).exec(function(e, d){
+		Task.find({}).exec(function(e, d){
+			console.log(d);
 			cb(e, d, res);
 		});
 	},

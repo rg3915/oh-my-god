@@ -39,7 +39,7 @@ table.ui.celled.table
 		th Date
 
 	tbody
-		tr(ng-repeat="task in ctrl.tasks | filter: ctrl.filterTask", ng-click="ctrl.selectTask(task)", ng-class="{checked: task.status}")
+		tr(ng-repeat="task in ctrl.tasks | filter: ctrl.filterTask | orderBy: task.date | limitTo: 10", ng-click="ctrl.selectTask(task)", ng-class="{checked: task.status}")
 			td
 				i(ng-class="{checkmark: task.status, green: task.status, attention: !task.status, blue: !task.status}").ui.icon.large
 			td {{task.text | characters: 17: true}}
@@ -49,16 +49,8 @@ div(ng-if="ctrl.tasks.length <= 0").ui.info.message
 	i.thumbs.outline.up.icon
 	span Your list of task is empty
 
-div.ui.pagination.menu
-	a.icon.item
+div(ng-if="ctrl.tasks.length > 10").ui.pagination.menu
+	a(ng-if="ctrl.prevPage >= 0",ng-href="/#/{{ctrl.prevPage}}/list").icon.item
 		i.left.arrow.icon
-	a.active.item 1
-	a.disabled.item ...
-	a.active.item 10
-	a.active.item 20
-	a.active.item 30
-	a.active.item 1
-	a.disabled.item ...
-	a.active.item 10
-	a.icon.item
+	a(ng-href="/#/{{ctrl.nextPage}}/list").icon.item
 		i.right.arrow.icon
