@@ -6,10 +6,13 @@
 			, 	scp = $scope
 			, 	page = $routeParams.p
 			, 	updateList = function(){
-					req.retrive('/api/task/' + page + '/retrive')
+					req.retrive('/api/task/retrive')
 						.success(function(d){
 							
+<<<<<<< HEAD
 							// Recuperando os dados da API
+=======
+>>>>>>> b9fef357cb2dac113685eaf24d9c9264e03a0ba4
 							scp.ctrl.tasks = d;
 
 						}).error(function(e){
@@ -45,9 +48,22 @@
 
 					req.update(url, data)
 						.success(function(d){
+<<<<<<< HEAD
+=======
+
+>>>>>>> b9fef357cb2dac113685eaf24d9c9264e03a0ba4
 							updateList();
+
 						}).error(function(e){
+<<<<<<< HEAD
 							console.log('Error: ' + e);
+=======
+
+							scp.ctrl.message.status = false;
+							scp.ctrl.message.text = 'Error: ' + e;
+							console.log(e);
+							
+>>>>>>> b9fef357cb2dac113685eaf24d9c9264e03a0ba4
 						})
 				},
 
@@ -60,6 +76,7 @@
 							scp.ctrl.message.status = true;
 							scp.ctrl.message.text = 'Your task was created with success';
 							task.text = '';
+
 							updateList();
 
 						}).error(function(e){

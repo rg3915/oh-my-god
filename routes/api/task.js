@@ -17,7 +17,7 @@ var router = require('express').Router()
 ========================*/
 
 //Rota que retorna os registros
-router.get('/:id/retrive', function(req, res){
+router.get('/retrive', function(req, res){
 	api.retrive(req, res, cbAPI);
 });
 

@@ -18,7 +18,10 @@ module.exports = {
 	retrive: function(req, res, cb){
 
 		Task.find({}).exec(function(e, d){
+<<<<<<< HEAD
 			console.log(d);
+=======
+>>>>>>> b9fef357cb2dac113685eaf24d9c9264e03a0ba4
 			cb(e, d, res);
 		});
 	},
@@ -39,9 +42,6 @@ module.exports = {
 		var query = {_id: req.params.id};
 
 		var mod = req.body;
-
-		console.log('Condition ' + query);
-		console.log('Data ' + mod);
 
 		Task.update(query, mod, function(e, d){
 
