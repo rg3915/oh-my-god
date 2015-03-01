@@ -8,12 +8,14 @@
 			, 	updateList = function(){
 					req.retrive('/api/task/retrive')
 						.success(function(d){
-							
-<<<<<<< HEAD
-							// Recuperando os dados da API
-=======
->>>>>>> b9fef357cb2dac113685eaf24d9c9264e03a0ba4
-							scp.ctrl.tasks = d;
+
+							scp.ctrl.tasks = d.slice((scp.ctrl.limitTask *scp.ctrl.currentPage));
+
+							console.log(scp.ctrl.tasks);
+							console.log(scp.ctrl.limitTask *scp.ctrl.currentPage);
+
+							scp.ctrl.amountTask = d.length;
+							scp.ctrl.amountPage = Math.floor(scp.ctrl.amountTask /scp.ctrl.limitTask);
 
 						}).error(function(e){
 							scp.ctrl.message.status = false;
@@ -22,16 +24,22 @@
 			}
 
 			scp.ctrl = {
+
 				message: {},
 				showMessage: false,
+
 				filterTask: '',
 				tasks: [],
 				selectedTask: {},
 				onSelectedTask: false,
+
+				amountTask: 0,
 				limitTask: 10,
-				currentPage: page,
-				nextPage: parseInt(page)  +1,
-				prevPage: parseInt(page) -1,
+
+				amountPage: 0,
+				currentPage: parseInt(page),
+				prevPage: '#/'+ (parseInt(page) -1) +'/list',
+				nextPage: '#/'+ (parseInt(page) +1) +'/list',
 
 				selectTask: function(task){
 					scp.ctrl.selectedTask = task;
@@ -48,22 +56,18 @@
 
 					req.update(url, data)
 						.success(function(d){
-<<<<<<< HEAD
-=======
 
->>>>>>> b9fef357cb2dac113685eaf24d9c9264e03a0ba4
 							updateList();
 
 						}).error(function(e){
-<<<<<<< HEAD
+
 							console.log('Error: ' + e);
-=======
+
 
 							scp.ctrl.message.status = false;
 							scp.ctrl.message.text = 'Error: ' + e;
 							console.log(e);
-							
->>>>>>> b9fef357cb2dac113685eaf24d9c9264e03a0ba4
+
 						})
 				},
 

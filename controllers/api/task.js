@@ -18,11 +18,9 @@ module.exports = {
 	retrive: function(req, res, cb){
 
 		Task.find({}).exec(function(e, d){
-<<<<<<< HEAD
-			console.log(d);
-=======
->>>>>>> b9fef357cb2dac113685eaf24d9c9264e03a0ba4
+
 			cb(e, d, res);
+			
 		});
 	},
 
