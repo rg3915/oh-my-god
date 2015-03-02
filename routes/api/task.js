@@ -8,7 +8,7 @@ var router = require('express').Router()
 	if(!err){
 		res.json(data);
 	}else{
-		res.status(500).send(err);
+		console.log(err);
 	}
 }
 

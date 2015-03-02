@@ -44,7 +44,7 @@
 					req.update(url, data)
 						.success(function(d){
 							console.log(d);
-							$location.path('/#/list')
+							$location.path('/#/0/list')
 						}).error(function(e){
 							console.log(e);
 						})

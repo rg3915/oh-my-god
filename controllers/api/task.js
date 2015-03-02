@@ -6,6 +6,8 @@ module.exports = {
 
 		var _task = req.body;
 
+		console.log(_task);
+
 		var model = new Task(_task);
 
 		model.save(function(e, d){

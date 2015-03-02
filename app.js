@@ -1,7 +1,7 @@
 var app = require('./config/express')
-,	db  =  require('./config/db')('mongodb://guilherme:Guiferpa94@ds049651.mongolab.com:49651/omg')
+,	db  =  require('./config/db')('mongodb://localhost/omg')
 , 	http = require('http').Server(app);
 
-app.listen(process.env.PORT, function(){
+app.listen(3000, function(){
 	console.log('Servidor certo');
 });
